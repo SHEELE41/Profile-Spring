@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}">
+
+<!-- profile_edit.html 고유 CSS 추가 -->
+<th:block layout:fragment="pageCss">
+    <link rel="stylesheet" th:href="@{/css/page/profile_edit.css}">
+</th:block>
+<!-- profile_edit.html 고유 스크립트 추가 -->
+<th:block layout:fragment="pageScript">
+    <script th:src="@{/js/page/profile_edit.js}"></script>
+</th:block>
+
+<div layout:fragment="content">
+    <div class="profile-edit-wrapper">
+        <div class="profile-edit-container">
+            <h2>프로필 수정</h2>
+            <form>
+                <div class="form-group">
+                    <label for="userName">이름</label>
+                    <input type="text" class="form-control" id="userName" th:value="${userName}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="userBio">자기소개</label>
+                    <input type="text" class="form-control" id="userBio" th:value="${userBio}">
+                </div>
+                <div class="u-img" th:style="'background-image:url(' + ${userPicture} + ');'"></div>
+                <ul class="vcard">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                        <span class="form-group">
+                            <label for="userGithub">Github</label>
+                            <input type="text" class="form-control" id="userGithub" th:value="${userGithub}">
+                        </span>
+                    </li>
+                    <li>
+                        <svg class="octicon octicon-mail" viewBox="0 0 16 16" version="1.1" width="16" height="16"
+                             aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                  d="M1.75 2A1.75 1.75 0 000 3.75v.736a.75.75 0 000 .027v7.737C0 13.216.784 14 1.75 14h12.5A1.75 1.75 0 0016 12.25v-8.5A1.75 1.75 0 0014.25 2H1.75zM14.5 4.07v-.32a.25.25 0 00-.25-.25H1.75a.25.25 0 00-.25.25v.32L8 7.88l6.5-3.81zm-13 1.74v6.441c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.809L8.38 9.397a.75.75 0 01-.76 0L1.5 5.809z"></path>
+                        </svg>
+                        <span class="form-group">
+                            <label for="userEmail">Email</label>
+                            <input type="text" class="form-control" id="userEmail" th:value="${userEmail}" readonly>
+                        </span>
+                    </li>
+                    <li itemprop="url" data-test-selector="profile-website-url"
+                        class="vcard-detail pt-1 css-truncate css-truncate-target ">
+                        <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16"
+                             width="16" class="octicon octicon-link">
+                            <path fill-rule="evenodd"
+                                  d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
+                        </svg>
+                        <span class="form-group">
+                            <label for="userWebsite">Website</label>
+                            <input type="text" class="form-control" id="userWebsite" th:value="${userWebsite}">
+                        </span>
+                    </li>
+                </ul>
+            </form>
+            <a th:href="@{'/profile/' + ${userId}}" role="button" class="btn btn-secondary">취소</a>
+            <button type="button" class="btn btn-primary" id="btn-update">수정 완료</button>
+        </div>
+    </div>
+</div>
+</html>

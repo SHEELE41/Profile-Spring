@@ -24,22 +24,33 @@ public class User extends BaseEntity {
     @Column
     private String picture;
 
+    @Column
+    private String bio;
+
+    @Column
+    private String github;
+
+    @Column
+    private String website;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
 
     @Builder
-    public User(String name, String email, String picture, Role role) {
+    public User(String name, String email, String picture, String bio, String github, String website, Role role) {
         this.name = name;
         this.email = email;
         this.picture = picture;
+        this.bio = bio;
+        this.github = github;
+        this.website = website;
         this.role = role;
     }
 
     public User update(String name, String picture) {
         this.name = name;
         this.picture = picture;
-
         return this;
     }
 

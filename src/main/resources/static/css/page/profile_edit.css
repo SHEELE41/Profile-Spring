@@ -1,0 +1,30 @@
+.profile-edit-container {
+    padding: 2%;
+}
+
+.u-img {
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.vcard {
+    list-style: none;
+    padding: 0;
+}
+
+.vcard li {
+    list-style: none;
+}
+
+.form-group, li {
+    margin-top: 10px;
+}
+
+svg, label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
