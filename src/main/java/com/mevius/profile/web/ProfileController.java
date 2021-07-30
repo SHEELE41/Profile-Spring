@@ -1,15 +1,13 @@
-package com.mevius.profile.controller;
+package com.mevius.profile.web;
 
 import com.mevius.profile.config.auth.dto.SessionUser;
 import com.mevius.profile.domain.user.User;
 import com.mevius.profile.service.ProfileService;
+import com.mevius.profile.web.dto.ProfileUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -41,7 +39,7 @@ public class ProfileController {
     }
 
     @GetMapping("/profile/update/{uid}")
-    public String EditProfile(Model model, @PathVariable String uid) {
+    public String ShowEditProfile(Model model, @PathVariable String uid) {
         SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
         if (sessionUser != null) {
             model.addAttribute("sessionUserName", sessionUser.getName());

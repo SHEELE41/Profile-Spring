@@ -1,4 +1,4 @@
-package com.mevius.profile.controller;
+package com.mevius.profile.web;
 
 import com.mevius.profile.config.auth.dto.SessionUser;
 import lombok.RequiredArgsConstructor;
